@@ -61,7 +61,6 @@ class CheckoutSolution:
 
             skusSet = set(skus)
             for groupSkus, groupQty, groupPrice in self.groups:
-                print(groupSkus)
                 if skusSet.intersection(groupSkus):
                     groupCount = sum(counts[sku] for sku in groupSkus)
                     total += (groupCount // groupQty) * groupPrice
@@ -69,7 +68,6 @@ class CheckoutSolution:
                         groupSkus, key=lambda sku: self.salePrices[sku], reverse=True
                     )
                     groupCount -= groupCount % groupQty
-                    print(sortedGroupSkus)
                     for sku in sortedGroupSkus:
                         if groupCount == 0:
                             break
@@ -89,3 +87,4 @@ class CheckoutSolution:
             return -1
 
         return total
+
