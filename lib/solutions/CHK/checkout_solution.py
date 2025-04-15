@@ -41,9 +41,7 @@ class CheckoutSolution:
             "U": [("U", 4)],
         }
 
-        self.groups = {
-            "E": [("B", 2)],
-        }
+        self.groups = [("STXYZ", 3, 45)]
 
     # skus = unicode string
     def checkout(self, skus):
@@ -55,6 +53,9 @@ class CheckoutSolution:
         counts = Counter(skus)
 
         try:
+            for groupItems, groupSize, groupPrice:
+                group
+
             for sku, freeItemsList in self.freeItems.items():
                 for freeSku, saleQty in freeItemsList:
                     counts[freeSku] -= counts[sku] // saleQty
@@ -72,6 +73,7 @@ class CheckoutSolution:
             return -1
 
         return total
+
 
 
 
