@@ -8,7 +8,8 @@ class TestCheckout:
         assert CheckoutSolution().checkout("AAAA") == 180
         assert CheckoutSolution().checkout("AAAAA") == 200
         assert CheckoutSolution().checkout("AAAAAAAA") == 330
-        assert CheckoutSolution().checkout("EE") == 40
+        assert CheckoutSolution().checkout("EE") == 80
         assert CheckoutSolution().checkout("hello") == -1
         assert CheckoutSolution().checkout("") == 0
+
 

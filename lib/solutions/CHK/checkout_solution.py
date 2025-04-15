@@ -14,7 +14,7 @@ class CheckoutSolution:
 
     # skus = unicode string
     def checkout(self, skus):
-        if not type(skus) == String:
+        if not isinstance(skus, str):
             return -1
         # Counts all SKUs in the skus string
         counts = Counter(skus)
@@ -25,11 +25,14 @@ class CheckoutSolution:
                 for saleQty, salePrice in self.salePrices[sku]:
                     total += (count // saleQty) * salePrice
                     count %= saleQty
+                    if count == 0:
+                        break
             except KeyError:
                 # If skus not found in prices return -1
                 return -1
 
         return total
+
 
 
 
