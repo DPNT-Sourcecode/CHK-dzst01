@@ -9,7 +9,7 @@ class CheckoutSolution:
             "C": 20,
             "D": 15,
         }
-        self.sales = {
+        self.salePrices = {
             "A": (3, 130),
             "B": (2, 45),
         }
@@ -20,6 +20,10 @@ class CheckoutSolution:
         total = 0
 
         for sku, count in counts.items():
-            total+= 
+            if sku in self.salePrices:
+             	saleQty, salePrice = self.salePrices[sku]
+             	total+=(count//saleQty)*salePrice + (count%saleQty)*salePrice
+            else:
 
         return total
+
