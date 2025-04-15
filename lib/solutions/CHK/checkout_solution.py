@@ -11,9 +11,10 @@ class CheckoutSolution:
             "D": [(1, 15)],
             "E": [(1, 40)],
         }
-        self.Free = [
+        
+        self.freeItems = {
             "E": [("B", 2)],
-		]
+		}
 
     # skus = unicode string
     def checkout(self, skus):
@@ -23,20 +24,22 @@ class CheckoutSolution:
         counts = Counter(skus)
         total = 0
         
-		
+		for sku, freeItemsList in self.freeItems:
+            for item, 
 
         for sku, count in counts.items():
             try:
                 for saleQty, salePrice in self.salePrices[sku]:
+                    if count <= 0:
+                        break
                     total += (count // saleQty) * salePrice
                     count %= saleQty
-                    if count == 0:
-                        break
             except KeyError:
                 # If skus not found in prices return -1
                 return -1
 
         return total
+
 
 
 
