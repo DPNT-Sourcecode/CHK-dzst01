@@ -63,8 +63,10 @@ class CheckoutSolution:
                 groupCount = sum(self.salePrices[sku][-1] for sku in groupSkus)
                 total += (groupCount // groupQty) * groupPrice
                 sortedGroupSkus = sorted(groupSkus, key=-self.salePrices)
-                for sku in sortedGroupSkus:
-                    counts[freeSku] -= groupCount // groupQty
+                groupCount -= groupCount % groupQty
+                skuIndex = 0
+                while groupCount:
+						counts[Sku] -= max()
 
             for sku, count in counts.items():
                 for saleQty, salePrice in self.salePrices[sku]:
@@ -78,5 +80,6 @@ class CheckoutSolution:
             return -1
 
         return total
+
 
 
