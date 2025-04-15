@@ -42,7 +42,13 @@ class TestCheckout:
         assert CheckoutSolution().checkout("X") == 17
         assert CheckoutSolution().checkout("Y") == 20
         assert CheckoutSolution().checkout("Z") == 21
-        assert CheckoutSolution().checkout("S") == 21
+        assert CheckoutSolution().checkout("STXYZ") == 45
+        assert CheckoutSolution().checkout("SSSSS") == 45
+        assert CheckoutSolution().checkout("ZZTTT") == 45
+        assert CheckoutSolution().checkout("ZZTTTSSSYY") == 90
+        assert CheckoutSolution().checkout("XXXXXXXXXX") == 90
+        assert CheckoutSolution().checkout("XXXZZZ") == 62
         assert CheckoutSolution().checkout("hello") == -1
         assert CheckoutSolution().checkout(2234) == -1
+
 
