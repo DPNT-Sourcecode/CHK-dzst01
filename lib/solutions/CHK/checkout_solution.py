@@ -17,6 +17,7 @@ class CheckoutSolution:
 
     # skus = unicode string
     def checkout(self, skus):
+        # Caunts all SKUs in the skus string
         counts = Counter(skus)
         total = 0
 
@@ -24,11 +25,13 @@ class CheckoutSolution:
             price = self.prices[sku]
             if sku in self.salePrices:
                 saleQty, salePrice = self.salePrices[sku]
+                # Find number of sale
                 total += (count // saleQty) * salePrice + (count % saleQty) * price
             else:
                 total += count * price
 
         return total
+
 
 
 
