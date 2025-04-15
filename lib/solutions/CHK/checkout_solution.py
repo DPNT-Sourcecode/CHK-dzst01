@@ -3,17 +3,13 @@ from collections import Counter
 
 class CheckoutSolution:
     def __init__(self):
-        self.prices = {
-            "A": 50,
-            "B": 30,
-            "C": 20,
-            "D": 15,
-            "E": 40,
-        }
         # sku: (saleQty, salePrice)
         self.salePrices = {
-            "A": [(5, 200), (3, 130)],
-            "B": [(2, 45)],
+            "A": [(5, 200), (3, 130), (1, 50)],
+            "B": [(2, 45), (1, 30)],
+            "C": [(1, 20)],
+            "D": [(1, 15)],
+            "E": [(1, 40)],
         }
 
     # skus = unicode string
@@ -24,18 +20,15 @@ class CheckoutSolution:
 
         for sku, count in counts.items():
             try:
-                price = self.prices[sku]
-                if sku in self.salePrices:
-                    while counts:
-                    saleQty, salePrice = self.salePrices[sku]
-                    # Find number of sale items and price and add remain items as normal
+				while len(self.salePrices[sku])-1 and countrs:
+					saleQty, salePrice = self.salePrices[sku]
+
                     total += (count // saleQty) * salePrice + (count % saleQty) * price
-                else:
-                    total += count * price
             except KeyError:
                 # If skus not found in prices return -1
                 return -1
 
         return total
+
 
 
