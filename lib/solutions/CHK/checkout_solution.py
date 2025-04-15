@@ -17,7 +17,7 @@ class CheckoutSolution:
 
     # skus = unicode string
     def checkout(self, skus):
-        # Caunts all SKUs in the skus string
+        # Counts all SKUs in the skus string
         counts = Counter(skus)
         total = 0
 
@@ -30,10 +30,12 @@ class CheckoutSolution:
                     total += (count // saleQty) * salePrice + (count % saleQty) * price
                 else:
                     total += count * price
-            except e:
+            except KeyError:
+                # If skus not found in prices return -1
                 return -1
 
         return total
+
 
 
 
