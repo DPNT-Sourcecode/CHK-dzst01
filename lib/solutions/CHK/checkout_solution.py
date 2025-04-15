@@ -28,9 +28,9 @@ class CheckoutSolution:
             "U": [(1, 40)],
             "V": [(3, 130), (2, 90), (1, 50)],
             "W": [(1, 20)],
-            "X": [(1, 90)],
+            "X": [(1, 17)],
             "Y": [(1, 20)],
-            "Z": [(1, 50)],
+            "Z": [(1, 21)],
         }
 
         self.freeItems = {
@@ -39,6 +39,10 @@ class CheckoutSolution:
             "N": [("M", 3)],
             "R": [("Q", 3)],
             "U": [("U", 4)],
+        }
+
+        self.groups = {
+            "E": [("B", 2)],
         }
 
     # skus = unicode string
@@ -68,6 +72,7 @@ class CheckoutSolution:
             return -1
 
         return total
+
 
 
 
