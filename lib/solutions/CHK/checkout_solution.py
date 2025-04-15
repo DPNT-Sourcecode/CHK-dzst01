@@ -26,7 +26,7 @@ class CheckoutSolution:
             "S": [(1, 30)],
             "T": [(1, 20)],
             "U": [(1, 40)],
-            "V": [(3, 130)(2, 90)(1, 50)],
+            "V": [(3, 130), (2, 90), (1, 50)],
             "W": [(1, 20)],
             "X": [(1, 90)],
             "Y": [(1, 10)],
@@ -35,7 +35,6 @@ class CheckoutSolution:
 
         self.freeItems = {
             "E": [("B", 2)],
-            "F": [("F", 3)],
             "F": [("F", 3)],
             "N": [("M", 3)],
             "R": [("Q", 3)],
@@ -69,4 +68,5 @@ class CheckoutSolution:
             return -1
 
         return total
+
 

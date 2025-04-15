@@ -16,5 +16,26 @@ class TestCheckout:
         assert CheckoutSolution().checkout("FFF") == 20
         assert CheckoutSolution().checkout("FFFF") == 30
         assert CheckoutSolution().checkout("FFFFFF") == 40
+    	assert CheckoutSolution().checkout("G") == 20
+    	assert CheckoutSolution().checkout("H") ==  10
+    	assert CheckoutSolution().checkout("I") == 35
+    	assert CheckoutSolution().checkout("J") == 60
+    	assert CheckoutSolution().checkout("K") == 15 (1, 80)],
+    	assert CheckoutSolution().checkout("L") == 90
+    	assert CheckoutSolution().checkout("M") == 15
+    	assert CheckoutSolution().checkout("N") == 40
+    	assert CheckoutSolution().checkout("O") == 10
+    	assert CheckoutSolution().checkout("P") == 20 (1, 50)],
+    	assert CheckoutSolution().checkout("Q") == 80(1, 30)],
+    	assert CheckoutSolution().checkout("R") == 50
+    	assert CheckoutSolution().checkout("S") == 30
+    	assert CheckoutSolution().checkout("T") == 20
+    	assert CheckoutSolution().checkout("U") == 40
+    	assert CheckoutSolution().checkout("V") == 13 (2, 90), (1, 50)],
+    	assert CheckoutSolution().checkout("W") == 20
+    	assert CheckoutSolution().checkout("X") == 90
+    	assert CheckoutSolution().checkout("Y") == 10
+    	assert CheckoutSolution().checkout("Z") == 50
         assert CheckoutSolution().checkout("hello") == -1
         assert CheckoutSolution().checkout(2234) == -1
+
