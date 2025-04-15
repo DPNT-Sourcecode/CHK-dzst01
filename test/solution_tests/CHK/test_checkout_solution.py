@@ -7,6 +7,3 @@ class TestCheckout:
         assert CheckoutSolution().checkout("AABCD") == 165
         assert CheckoutSolution().checkout("AAAA") == 180
         assert CheckoutSolution().checkout("hello") == -1
-
-
-
