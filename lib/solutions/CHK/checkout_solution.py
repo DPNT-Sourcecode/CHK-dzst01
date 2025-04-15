@@ -20,15 +20,15 @@ class CheckoutSolution:
 
         for sku, count in counts.items():
             try:
-				while len(self.salePrices[sku])-1 and countrs:
-					saleQty, salePrice = self.salePrices[sku]
-
-                    total += (count // saleQty) * salePrice + (count % saleQty) * price
+                for saleQty, salePrice in self.salePrices[sku]:
+                    total += (count // saleQty) * salePrice
+                    count %= saleQty
             except KeyError:
                 # If skus not found in prices return -1
                 return -1
 
         return total
+
 
 
 
