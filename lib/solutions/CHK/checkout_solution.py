@@ -15,7 +15,7 @@ class CheckoutSolution:
             "H": [(10, 80), (5, 45), (1, 10)],
             "I": [(1, 35)],
             "J": [(1, 60)],
-            "K": [(2, 150), (1, 70)],
+            "K": [(2, 120), (1, 70)],
             "L": [(1, 90)],
             "M": [(1, 15)],
             "N": [(1, 40)],
@@ -62,7 +62,9 @@ class CheckoutSolution:
             for groupSkus, groupQty, groupPrice in self.groups:
                 groupCount = sum(counts[sku] for sku in groupSkus)
                 total += (groupCount // groupQty) * groupPrice
-                sortedGroupSkus = sorted(groupSkus, key=self.salePrices, reverse=True)
+                sortedGroupSkus = sorted(
+                    groupSkus, key=lambda sku: self.salePrices[sku], reverse=True
+                )
                 groupCount -= groupCount % groupQty
                 for sku in sortedGroupSkus:
                     if groupCount == 0:
@@ -83,6 +85,7 @@ class CheckoutSolution:
             return -1
 
         return total
+
 
 
 
