@@ -23,20 +23,23 @@ class CheckoutSolution:
         # Counts all SKUs in the skus string
         counts = Counter(skus)
 
-        for sku, freeItemsList in self.freeItems.items():
-            for freeSku, saleQty in freeItemsList:
-                counts[freeSku] -= counts[sku] % saleQty
+        try:
+            for sku, freeItemsList in self.freeItems.items():
+                for freeSku, saleQty in freeItemsList:
+                    counts[freeSku] -= counts[sku] % saleQty
 
-        total = 0
-        for sku, count in counts.items():
-            try:
+            total = 0
+            for sku, count in counts.items():
+                print(sku, count)
                 for saleQty, salePrice in self.salePrices[sku]:
                     if count <= 0:
                         break
                     total += (count // saleQty) * salePrice
                     count %= saleQty
-            except KeyError:
-                # If skus not found in prices return -1
-                return -1
+
+        except KeyError:
+            # If skus not found in prices return -1
+            return -1
 
         return total
+
