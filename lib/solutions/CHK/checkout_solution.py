@@ -10,16 +10,20 @@ class CheckoutSolution:
             "C": [(1, 20)],
             "D": [(1, 15)],
             "E": [(1, 40)],
+            "F": [(1, 10)],
         }
 
         self.freeItems = {
             "E": [("B", 2)],
+            "F": [("F", 3)],
         }
 
     # skus = unicode string
     def checkout(self, skus):
+        # If not a string
         if not isinstance(skus, str):
             return -1
+
         # Counts all SKUs in the skus string
         counts = Counter(skus)
 
@@ -41,5 +45,6 @@ class CheckoutSolution:
             return -1
 
         return total
+
 
 
