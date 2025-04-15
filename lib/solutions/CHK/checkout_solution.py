@@ -26,6 +26,7 @@ class CheckoutSolution:
             try:
                 price = self.prices[sku]
                 if sku in self.salePrices:
+                    while counts:
                     saleQty, salePrice = self.salePrices[sku]
                     # Find number of sale items and price and add remain items as normal
                     total += (count // saleQty) * salePrice + (count % saleQty) * price
@@ -36,4 +37,5 @@ class CheckoutSolution:
                 return -1
 
         return total
+
 
