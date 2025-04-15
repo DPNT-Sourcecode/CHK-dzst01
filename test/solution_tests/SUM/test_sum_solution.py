@@ -1,4 +1,4 @@
-from solutions.SUM.sum_solution import SumSolution
+from lib.solutions.SUM.sum_solution import SumSolution
 
 
 class TestSum:
@@ -8,4 +8,3 @@ class TestSum:
         assert SumSolution().compute(100, 100) == 200
         assert SumSolution().compute(48, 2) == 50
         assert SumSolution().compute(1, 99) == 100
-
