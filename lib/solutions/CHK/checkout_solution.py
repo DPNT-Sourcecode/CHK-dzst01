@@ -22,15 +22,19 @@ class CheckoutSolution:
         total = 0
 
         for sku, count in counts.items():
-            price = self.prices[sku]
-            if sku in self.salePrices:
-                saleQty, salePrice = self.salePrices[sku]
-                # Find number of sale
-                total += (count // saleQty) * salePrice + (count % saleQty) * price
-            else:
-                total += count * price
+            try:
+                price = self.prices[sku]
+                if sku in self.salePrices:
+                    saleQty, salePrice = self.salePrices[sku]
+                    # Find number of sale items and price and add remain items as normal
+                    total += (count // saleQty) * salePrice + (count % saleQty) * price
+                else:
+                    total += count * price
+            except e:
+                return -1
 
         return total
+
 
 
 
