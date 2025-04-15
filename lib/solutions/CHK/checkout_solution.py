@@ -9,6 +9,7 @@ class CheckoutSolution:
             "C": 20,
             "D": 15,
         }
+        # sku: (saleQty, salePrice)
         self.salePrices = {
             "A": (3, 130),
             "B": (2, 45),
@@ -28,5 +29,6 @@ class CheckoutSolution:
                 total += count * price
 
         return total
+
 
 
