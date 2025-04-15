@@ -11,10 +11,10 @@ class CheckoutSolution:
             "D": [(1, 15)],
             "E": [(1, 40)],
         }
-        
+
         self.freeItems = {
             "E": [("B", 2)],
-		}
+        }
 
     # skus = unicode string
     def checkout(self, skus):
@@ -22,11 +22,12 @@ class CheckoutSolution:
             return -1
         # Counts all SKUs in the skus string
         counts = Counter(skus)
-        total = 0
-        
-		for sku, freeItemsList in self.freeItems:
-            for item, 
 
+        for sku, freeItemsList in self.freeItems.items():
+            for freeSku, saleQty in freeItemsList:
+                counts[freeSku] -= counts[sku] % saleQty
+
+        total = 0
         for sku, count in counts.items():
             try:
                 for saleQty, salePrice in self.salePrices[sku]:
@@ -39,11 +40,3 @@ class CheckoutSolution:
                 return -1
 
         return total
-
-
-
-
-
-
-
-
