@@ -8,11 +8,12 @@ class CheckoutSolution:
             "B": 30,
             "C": 20,
             "D": 15,
+            "E": 40,
         }
         # sku: (saleQty, salePrice)
         self.salePrices = {
-            "A": (3, 130),
-            "B": (2, 45),
+            "A": [(5, 200), (3, 130)],
+            "B": [(2, 45)],
         }
 
     # skus = unicode string
@@ -35,3 +36,4 @@ class CheckoutSolution:
                 return -1
 
         return total
+
