@@ -20,10 +20,13 @@ class CheckoutSolution:
         total = 0
 
         for sku, count in counts.items():
+            price = self.prices[sku]
             if sku in self.salePrices:
-             	saleQty, salePrice = self.salePrices[sku]
-             	total+=(count//saleQty)*salePrice + (count%saleQty)*salePrice
+                saleQty, salePrice = self.salePrices[sku]
+                total += (count // saleQty) * salePrice + (count % saleQty) * price
             else:
+                total += count * price
 
         return total
+
 
