@@ -41,7 +41,7 @@ class CheckoutSolution:
             "U": [("U", 4)],
         }
 
-        self.groups = [("STXYZ", 3, 45)]
+        self.groups = [(set("STXYZ"), 3, 45)]
 
     # skus = unicode string
     def checkout(self, skus):
@@ -59,21 +59,22 @@ class CheckoutSolution:
 
             total = 0
 
-			skusSet = set(skus)
+            skusSet = set(skus)
+            skus
             for groupSkus, groupQty, groupPrice in self.groups:
-                if skusSet
-					groupCount = sum(counts[sku] for sku in groupSkus)
-					total += (groupCount // groupQty) * groupPrice
-					sortedGroupSkus = sorted(
-						groupSkus, key=lambda sku: self.salePrices[sku], reverse=True
-					)
-					groupCount -= groupCount % groupQty
-					for sku in sortedGroupSkus:
-						if groupCount == 0:
-							break
-						sub = min(groupCount, counts[sku])
-						counts[sku] -= sub
-						groupCount -= sub
+                if skusSet.intersection(groupSkus):
+                    groupCount = sum(counts[sku] for sku in groupSkus)
+                    total += (groupCount // groupQty) * groupPrice
+                    sortedGroupSkus = sorted(
+                        groupSkus, key=lambda sku: self.salePrices[sku], reverse=True
+                    )
+                    groupCount -= groupCount % groupQty
+                    for sku in sortedGroupSkus:
+                        if groupCount == 0:
+                            break
+                        sub = min(groupCount, counts[sku])
+                        counts[sku] -= sub
+                        groupCount -= sub
 
             for sku, count in counts.items():
                 for saleQty, salePrice in self.salePrices[sku]:
@@ -87,6 +88,7 @@ class CheckoutSolution:
             return -1
 
         return total
+
 
 
 
