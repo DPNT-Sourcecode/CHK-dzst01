@@ -14,6 +14,8 @@ class CheckoutSolution:
 
     # skus = unicode string
     def checkout(self, skus):
+        if not type(skus) == String:
+            return -1
         # Counts all SKUs in the skus string
         counts = Counter(skus)
         total = 0
@@ -28,6 +30,7 @@ class CheckoutSolution:
                 return -1
 
         return total
+
 
 
 
