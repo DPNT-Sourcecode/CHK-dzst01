@@ -6,6 +6,16 @@ class CheckoutSolution:
     def checkout(self, skus):
         counts = Counter(skus)
         total = 0
-B
+        prices = {
+            "A": 50,
+            "B": 30,
+            "C": 20,
+            "D": 15,
+        }
+sales = {
+     "A": ()
+}
+
         return total
+
 
